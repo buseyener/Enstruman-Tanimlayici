@@ -48,6 +48,10 @@ Veri Hazırlığı: MFCC verileri ve etiketler, modelin eğitiminde kullanılaca
 Proje İçeriği
 
 Veri Toplama: YouTube çalma listesinden ses dosyalarının indirilmesi.
+
 Veri Temizleme: Sessiz bölümlerin çıkarılması ve gürültü temizleme işlemleri.
+
 MFCC Çıkarımı: Ses dosyalarından MFCC özelliklerinin çıkarılması.
+
 Etiketleme: MFCC dosyaları, her enstrümana ait etiketlerle ilişkilendirilir.
+
