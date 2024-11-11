@@ -1,8 +1,9 @@
-#Enstrüman Sınıflandırma Projesi - Veri Toplama ve Ön İşleme Adımları
-#Bu README dosyası, müzik enstrümanlarını sınıflandırmak için kullanılan veri toplama ve ön işleme sürecini açıklamaktadır. Proje, ses dosyalarından Mel Frekansı Cepstral Katsayıları (MFCC) çıkararak her bir enstrümanı sınıflandırmak için kullanılabilir.
+Enstrüman Sınıflandırma Projesi - Veri Toplama ve Ön İşleme Adımları
 
-#1. Veri Toplama
-#Veri toplama aşamasında, YouTube çalma listelerinden müzik parçaları indirilmektedir. Bu parçalar, farklı enstrümanları temsil etmektedir (örneğin, piyano, keman, gitar, kanun).
+Bu README dosyası, müzik enstrümanlarını sınıflandırmak için kullanılan veri toplama ve ön işleme sürecini açıklamaktadır. Proje, ses dosyalarından Mel Frekansı Cepstral Katsayıları (MFCC) çıkararak her bir enstrümanı sınıflandırmak için kullanılabilir.
+
+1. Veri Toplama
+Veri toplama aşamasında, YouTube çalma listelerinden müzik parçaları indirilmektedir. Bu parçalar, farklı enstrümanları temsil etmektedir (örneğin, piyano, keman, gitar, kanun).
 
 Adımlar:
 YouTube Playlist İndirme: yt_dlp kütüphanesi kullanılarak belirtilen bir YouTube çalma listesindeki tüm videolar indirilir ve her video MP3 formatında kaydedilir.
