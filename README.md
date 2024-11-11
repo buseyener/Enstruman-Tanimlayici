@@ -4,7 +4,7 @@ Bu README dosyası, müzik enstrümanlarını sınıflandırmak için kullanıla
 
 1. Veri Toplama
    
-Veri toplama aşamasında, YouTube çalma listelerinden müzik parçaları indirilmektedir. Bu parçalar, farklı enstrümanları temsil etmektedir (örneğin, piyano, keman, gitar, kanun).
+Veri toplama aşamasında, YouTube çalma listelerinden müzik parçaları indirilmektedir. Bu parçalar, farklı enstrümanları temsil etmektedir ( piyano, keman, gitar, kanun).
 
 Adımlar:
 
