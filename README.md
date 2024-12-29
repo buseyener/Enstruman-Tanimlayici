@@ -33,10 +33,8 @@ Normalizasyon: Ses sinyali, sabit bir ses seviyesi için normalize edilmiştir.
 
  Özellik Çıkarımı
 
-
 Her ses dosyası, 3 saniyelik segmentlere bölünmüş ve her segmentten 13 MFCC özelliği çıkarılmıştır. MFCC, ses verisinin frekans özelliklerini temsil eden ve özellikle ses tanıma uygulamalarında yaygın olarak kullanılan bir tekniktir.
 
- Veri Segmentasyonu ve Etiketleme
 
 Veri Segmentasyonu: Ses dosyaları, her biri 3 saniyelik parçalara ayrılmıştır.
 
