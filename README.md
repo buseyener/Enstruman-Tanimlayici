@@ -2,7 +2,7 @@ Müzik Enstrümanlarının Tespiti Projesi
 
 Proje Hakkında
    
-Bu proje, çeşitli müzik enstrümanlarının (piyano, keman, gitar, kanun) ses verilerinin toplanması, işlenmesi ve sınıflandırılması amacıyla geliştirilmiştir. Proje, ses dosyalarının toplanmasından önceki ve sonraki işlemleri, yani sessizlik temizleme, gürültü azaltma, MFCC (Mel-Frekans Kepstrum Katsayıları) çıkarımı ve etiketleme gibi adımları kapsamaktadır. Elde edilen verilerle çeşitli makine öğrenmesi modelleri eğitilmiş ve en iyi performansı sergileyen model, Random Forest Regressor seçilmiştir. Ayrıca, kullanıcıların ses dosyalarını yükleyip, bu dosyalar üzerinde enstrüman tahmini yapmalarını sağlayacak bir grafiksel kullanıcı arayüzü (GUI) geliştirilmiştir.
+Bu proje, çeşitli müzik enstrümanlarının (piyano, keman, gitar, kanun) ses verilerinin toplanması, işlenmesi ve sınıflandırılması amacıyla geliştirilmiştir. Proje, ses dosyalarının toplanmasından önceki ve sonraki işlemleri, yani sessizlik temizleme, gürültü azaltma, MFCC (Mel-Frekans Kepstrum Katsayıları) çıkarımı ve etiketleme gibi adımları kapsamaktadır. Elde edilen verilerle çeşitli yapay zeka modelleri eğitilmiştir.
 
 Şarkılardaki Enstrümanların Tespiti
    
@@ -40,47 +40,60 @@ Veri Segmentasyonu: Ses dosyaları, her biri 3 saniyelik parçalara ayrılmışt
 
 Etiketleme: Her segment, ait olduğu enstrümana göre etiketlenmiştir (piyano, keman, gitar, kanun).
 
-Sonuçta, yüksek kaliteli ve etiketlenmiş bir veri seti elde edilmiştir ve bu veri seti, makine öğrenmesi modelleri için kullanılmak üzere hazırlanmıştır.
+Sonuçta, yüksek kaliteli ve etiketlenmiş bir veri seti elde edilmiştir ve bu veri seti, yapay zeka modelleri için kullanılmak üzere hazırlanmıştır.
 
- Makine Öğrenmesi Modelleri
- 
-Toplanan ve işlenen verilerle çeşitli makine öğrenmesi modelleri eğitilmiştir. Bu modeller, müzik enstrümanlarının doğru bir şekilde sınıflandırılması için kullanılmıştır.
+Toplanan ve işlenen verilerle çeşitli yapay zeka  modelleri ile  eğitilmiştir. Bu modeller, müzik enstrümanlarının doğru bir şekilde sınıflandırılması için kullanılmıştır.
 
-Model Listesi
+Kullanılan Modeller
 
-Linear Regression (Doğrusal Regresyon): Eğitim süresi hızlı ancak doğrusal olmayan ilişkilerde performansı sınırlıdır.
+1. Audio Spectrogram Transformer (AST)
+   
+AST modeli, ses verilerini analiz etmek için Transformer tabanlı bir yapıyı kullanır. Bu model, enstrümanları sınıflandırma konusunda oldukça başarılı olmuştur.
 
-Ridge Regression (Ridge Regresyonu): Multikollineerlik durumunda başarılıdır ve aşırı uyum yapmayı engeller.
+Accuracy: 80.34%
+Precision: 80.46%
+Recall: 80.34%
+F1-Score: 80.14%
+AUC: 0.8626
+Eğitim Süresi: 1009.95 saniye
+Çıkarım Süresi: 0.87 saniye
 
-Lasso Regression (Lasso Regresyonu): Değişken seçimi için güçlüdür, ancak doğrusal olmayan ilişkilerde sınırlıdır.
+2. Data2Vec
 
-Support Vector Regressor (Destek Vektör Regresyonu): Karmaşık veri setlerinde yüksek doğruluk sağlar.
+Data2Vec, ses verisinden anlamlı özellikler çıkarmak için kullanılan bir başka güçlü transformatör modelidir. Bu model de yüksek doğruluk oranları ve başarılı performans gösterdi.
 
-Random Forest Regressor (Rastgele Orman Regresyonu): Çoklu karar ağaçlarıyla yüksek doğruluk ve düşük aşırı uyum sağlar.
+Accuracy: 80.61%
+Precision: 80.81%
+Recall: 80.61%
+F1-Score: 80.43%
+AUC: 0.8637
+Eğitim Süresi: 1015.96 saniye
+Çıkarım Süresi: 0.91 saniye
 
- Sonuçlar
- 
-En İyi Performansı Gösteren Model: Random Forest Regressor.
+3. Wave2Vec
 
-MSE: 0.0726
+Wave2Vec, ses verisini doğrudan ham formatta işler ve özellikle doğal dil işleme alanında başarılı sonuçlar verir. Bu model, en yüksek doğruluk oranını elde etmiştir.
 
-R2 Skoru: 0.9491
+Accuracy: 82.32%
+Precision: 82.55%
+Recall: 82.32%
+F1-Score: 81.87%
+AUC: 0.9594
+Eğitim Süresi: 776.12 saniye
+Çıkarım Süresi: 0.95 saniye
 
-Eğitim Zamanı: 13.9364 saniye
+4. Hubert Modeli
 
-Çıkarım Zamanı: 0.0157 saniye
+Hubert modeli, ses verisinin daha derin özelliklerini öğrenme yeteneği ile dikkat çeker. Bu model de ses sınıflandırma görevlerinde etkili bir performans göstermektedir.
 
-Random Forest Regressor, diğer modellere göre çok daha iyi sonuçlar elde etmiştir ve en doğru sınıflandırma sonuçlarını vermektedir.
 
-Arayüz
+Kullanılan Yöntemler
 
-Eğitilen modellerin ardından, kullanıcı etkileşimini kolaylaştırmak amacıyla bir grafiksel kullanıcı arayüzü (GUI) geliştirilmiştir. Tkinter tabanlı bu GUI, kullanıcıların ses dosyalarını yükleyip, bu dosyalar üzerinde enstrüman tahmini yapmalarını sağlar.
+SMOTE (Synthetic Minority Over-sampling Technique): Veri setinde görülen dengesizliği gidermek için SMOTE tekniği uygulanmıştır. Bu sayede, her sınıf için daha dengeli bir veri seti oluşturulmuştur.
 
-İşleyiş
+Transformer Tabanlı Modeller: Bu modeller, ses sinyalleri gibi sıralı veriler üzerinde dikkat mekanizmaları kullanarak öğrenme yapar. Bu sayede, ses verisindeki önemli özellikler çıkarılır ve doğru sınıflandırma yapılır.
 
-1-Kullanıcı ses dosyasını yükler.
+MFCC Özellik Çıkarımı: Her bir ses dosyasından MFCC öznitelikleri çıkarılarak, enstrümanların özellikleri sayısal verilere dönüştürülmüştür. Bu özellikler, modelin ses verisini anlamasında önemli rol oynamaktadır.
 
-2-Sistem, dosyayı işler, gerekli öznitelikleri çıkarır ve kaydedilen Random Forest modelini kullanarak tahmin yapar.
 
-3-Sonuç olarak, kullanıcıya hangi enstrümanın çaldığına dair bir bilgi sunulur.
 
